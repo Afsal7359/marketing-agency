@@ -64,15 +64,15 @@
       /* Color */
       --bg: #F4F1EA;
       --bg-2: #ECE7DA;
-      --ink: #0E0E0C;
+      --ink: #2A1CE5;
       --ink-2: #2A2924;
       --gray: #B8B2A1;
       --gray-2: #8A8576;
       --line: #D6D0BE;
-      --lime: #2A1CE5;
-      --lime-2: #5B4DFF;
-      --lime-bright: #7C86FF;
-      --orange: #FF5C2E;
+      --lime: #FF6700;
+      --lime-2: #E85D00;
+      --lime-bright: #FF6700;
+      --orange: #FF6700;
       --orange-2: #E84817;
       --cream: #FAF7EF;
 
@@ -472,7 +472,7 @@
       height: 8px;
       background: var(--lime);
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(91, 77, 255, .35);
+      box-shadow: 0 0 0 4px rgba(255, 103, 0, .35);
       animation: live-pulse 1.6s ease-in-out infinite;
     }
 
@@ -480,11 +480,11 @@
 
       0%,
       100% {
-        box-shadow: 0 0 0 4px rgba(91, 77, 255, .35);
+        box-shadow: 0 0 0 4px rgba(255, 103, 0, .35);
       }
 
       50% {
-        box-shadow: 0 0 0 7px rgba(91, 77, 255, .15);
+        box-shadow: 0 0 0 7px rgba(255, 103, 0, .15);
       }
     }
 
@@ -674,7 +674,7 @@
       inset: -40% -10% auto auto;
       width: 60%;
       aspect-ratio: 1;
-      background: radial-gradient(circle, rgba(91, 77, 255, .25), transparent 60%);
+      background: radial-gradient(circle, rgba(255, 103, 0, .25), transparent 60%);
       filter: blur(20px);
     }
 
@@ -1435,7 +1435,7 @@
 
     .step:hover {
       background: rgba(245, 241, 234, .04);
-      border-color: rgba(91, 77, 255, .4);
+      border-color: rgba(255, 103, 0, .4);
     }
 
     .step-num {
@@ -2079,7 +2079,7 @@
       position: absolute;
       inset: auto -10% -40% -10%;
       height: 60%;
-      background: radial-gradient(ellipse at center, rgba(91, 77, 255, .18), transparent 60%);
+      background: radial-gradient(ellipse at center, rgba(255, 103, 0, .18), transparent 60%);
       filter: blur(40px);
       pointer-events: none;
     }
@@ -2152,7 +2152,7 @@
       margin-bottom: 32px;
       color: var(--lime);
       padding: 8px 14px;
-      border: 1px solid rgba(91, 77, 255, .4);
+      border: 1px solid rgba(255, 103, 0, .4);
       border-radius: 999px;
       position: relative;
     }
@@ -2162,7 +2162,7 @@
       height: 8px;
       background: var(--lime);
       border-radius: 50%;
-      box-shadow: 0 0 0 4px rgba(91, 77, 255, .25);
+      box-shadow: 0 0 0 4px rgba(255, 103, 0, .25);
       animation: live-pulse 1.6s ease-in-out infinite;
     }
 
@@ -2365,24 +2365,28 @@
     }
   
   /* ===================== zayaanco brand overrides ===================== */
-  /* White text on brand-blue fills */
-  ::selection { background: var(--lime); color: #fff; }
-  .nav-cta .arrow, .btn-primary .arrow { color: #fff; }
-  .svc-card-2 { color: #fff; }
-  .svc-card-2 h3, .svc-card-2 .svc-num { color: #fff; }
-  .svc-card-2 .svc-desc { color: rgba(255,255,255,.82); }
-  .svc-card-2 .svc-list li { color: #fff; }
-  .svc-card-1:hover .svc-arrow { color: #fff; }
-  .more-row:hover .more-arrow { color: #fff; }
-  .case-1:hover .case-arrow { color: #fff; }
-  .case-4, .case-4 .case-result, .case-4 .case-title, .case-4 .case-meta { color: #fff; }
-  .stat:hover, .stat:hover .stat-num, .stat:hover .stat-label { color: #fff; }
-  .test-quote em { color: #fff; }
-  .badge-arrow { color: #fff; }
-  .cta-card .btn-primary { color: #fff; }
+  /* Logo image */
+  .logo-img { height: 26px; width: auto; display: block; }
+  .footer-brand .logo-img { height: 30px; }
+
+  /* Blue text on orange fills */
+  ::selection { background: var(--lime); color: var(--ink); }
+  .nav-cta .arrow, .btn-primary .arrow { color: var(--ink); }
+  .svc-card-2 { color: var(--ink); }
+  .svc-card-2 h3, .svc-card-2 .svc-num { color: var(--ink); }
+  .svc-card-2 .svc-desc { color: var(--ink); }
+  .svc-card-2 .svc-list li { color: var(--ink); }
+  .svc-card-1:hover .svc-arrow { color: var(--ink); }
+  .more-row:hover .more-arrow { color: var(--ink); }
+  .case-1:hover .case-arrow { color: var(--ink); }
+  .case-4, .case-4 .case-result, .case-4 .case-title, .case-4 .case-meta { color: var(--ink); }
+  .stat:hover, .stat:hover .stat-num, .stat:hover .stat-label { color: var(--ink); }
+  .test-quote em { color: var(--ink); }
+  .badge-arrow { color: var(--ink); }
+  .cta-card .btn-primary { color: var(--ink); }
   .cta-card .btn-primary:hover { color: var(--ink); }
 
-  /* Brand-blue is dark: brighten accent text/strokes on dark surfaces */
+  /* Accent text/strokes sitting on blue surfaces -> orange for contrast */
   .chart-num,
   .process .sec-title em,
   .step-num,
@@ -2390,18 +2394,19 @@
   .course-stat-num,
   .more-row:hover .more-num,
   .case-1 .case-result,
-  .case-3 .case-result small,
   .cta-card h2 em,
   .cta-availability,
   .cta-card .btn-primary .arrow { color: var(--lime-bright); }
   .chart-svg path.line { stroke: var(--lime-bright); }
+  /* case-3 is an orange card -> keep its accent blue */
+  .case-3 .case-result small { color: var(--ink); }
 
-  /* Course card is now brand-blue: keep its copy legible */
-  .course-card { color: #fff; }
-  .course-card h2 { color: #fff; }
-  .course-card > div > p { color: rgba(255,255,255,.85); }
-  .course-card .course-features li { color: rgba(255,255,255,.9); }
-  .course-card .course-features li svg { color: #fff; }
+  /* Course card is now orange: blue copy */
+  .course-card { color: var(--ink); }
+  .course-card h2 { color: var(--ink); }
+  .course-card > div > p { color: var(--ink); }
+  .course-card .course-features li { color: var(--ink); }
+  .course-card .course-features li svg { color: var(--ink); }
   /* ================================================================== */
 </style>
 </head>
@@ -2432,8 +2437,7 @@
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a class="logo" href="#top">
-        <span class="logo-mark"></span>
-        zayaanco<span style="color: var(--orange);">.</span>
+        <img class="logo-img" src="zayaanco-logo.png" alt="zayaanco" />
       </a>
 
       <nav class="nav-links">
@@ -2499,8 +2503,8 @@
           <svg class="chart-svg" viewBox="0 0 400 180" preserveAspectRatio="none">
             <defs>
               <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#5B4DFF" stop-opacity=".5" />
-                <stop offset="100%" stop-color="#5B4DFF" stop-opacity="0" />
+                <stop offset="0%" stop-color="#FF6700" stop-opacity=".5" />
+                <stop offset="100%" stop-color="#FF6700" stop-opacity="0" />
               </linearGradient>
             </defs>
             <path class="line" d="M0,140 C50,135 80,120 120,110 S180,80 230,60 280,30 320,20 380,12 400,8" />
@@ -2523,7 +2527,7 @@
               <defs>
                 <path id="circle" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" />
               </defs>
-              <text fill="#fff" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">
+              <text fill="#2A1CE5" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">
                 <textPath href="#circle">TAKING ON CLIENTS · TAKING ON CLIENTS · </textPath>
               </text>
             </svg>
@@ -2534,7 +2538,6 @@
         </div>
       </div>
 
-      <span class="hero-deco deco-asterisk">✻</span>
     </div>
   </section>
 
@@ -3332,8 +3335,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="logo" href="#top">
-            <span class="logo-mark"></span>
-            zayaanco
+            <img class="logo-img" src="zayaanco-logo.png" alt="zayaanco" />
           </a>
           <p>Performance marketing studio. Senior team only. Based remote — clients in NYC, London, Bangalore, Berlin.
           </p>

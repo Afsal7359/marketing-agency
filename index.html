@@ -1074,22 +1074,18 @@
       transform: translateY(-6px);
     }
 
-    .svc-card-1 {
-      background: var(--ink);
-      color: var(--cream);
-    }
-
-    .svc-card-2 {
+    /* Service cards cycle: 1 orange, 2 blue, 3 light — repeating */
+    .svc-grid > .svc-card:nth-child(3n+1) {
       background: var(--lime);
-      color: var(--ink);
+      color: #fff;
     }
 
-    .svc-card-3 {
-      background: var(--orange);
-      color: var(--cream);
+    .svc-grid > .svc-card:nth-child(3n+2) {
+      background: var(--ink);
+      color: #fff;
     }
 
-    .svc-card-4 {
+    .svc-grid > .svc-card:nth-child(3n+3) {
       background: var(--bg-2);
       color: var(--ink);
       border: 1px solid var(--line);
@@ -1121,9 +1117,8 @@
       transition: transform .4s, background .3s;
     }
 
-    .svc-card-2 .svc-icon,
-    .svc-card-4 .svc-icon {
-      background: rgba(0, 0, 0, .08);
+    .svc-grid > .svc-card:nth-child(3n+3) .svc-icon {
+      background: rgba(0, 0, 0, .06);
     }
 
     .svc-card:hover .svc-icon {
@@ -1170,33 +1165,9 @@
       background: rgba(255, 255, 255, .08);
     }
 
-    .svc-card-2 .svc-list li,
-    .svc-card-4 .svc-list li {
-      background: rgba(0, 0, 0, .07);
+    .svc-grid > .svc-card:nth-child(3n+3) .svc-list li {
+      background: rgba(0, 0, 0, .05);
     }
-
-    .svc-card-tech {
-      background: var(--bg-2);
-      color: var(--ink);
-      border: 1px solid var(--line);
-    }
-    .svc-thumb {
-      width: 100%;
-      aspect-ratio: 16 / 10;
-      border-radius: var(--rad-sm);
-      overflow: hidden;
-      background: var(--line);
-      margin-bottom: 20px;
-    }
-    .svc-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .6s ease;
-    }
-    .svc-card-tech:hover .svc-thumb img { transform: scale(1.05); }
-    .svc-card-tech .svc-arrow { background: rgba(0, 0, 0, .08); }
-    .svc-card-tech:hover .svc-arrow { background: var(--ink); color: var(--cream); }
 
     .svc-cta {
       display: inline-flex;
@@ -1223,29 +1194,23 @@
       transition: transform .35s, background .25s;
     }
 
-    .svc-card-2 .svc-arrow,
-    .svc-card-4 .svc-arrow {
-      background: rgba(0, 0, 0, .08);
+    .svc-grid > .svc-card:nth-child(3n+3) .svc-cta .svc-arrow {
+      background: rgba(0, 0, 0, .06);
     }
 
-    .svc-card-1:hover .svc-arrow {
+    .svc-grid > .svc-card:nth-child(3n+1):hover .svc-arrow {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .svc-grid > .svc-card:nth-child(3n+2):hover .svc-arrow {
       background: var(--lime);
-      color: var(--ink);
+      color: #fff;
     }
 
-    .svc-card-2:hover .svc-arrow {
+    .svc-grid > .svc-card:nth-child(3n+3):hover .svc-arrow {
       background: var(--ink);
-      color: var(--lime);
-    }
-
-    .svc-card-3:hover .svc-arrow {
-      background: var(--ink);
-      color: var(--orange);
-    }
-
-    .svc-card-4:hover .svc-arrow {
-      background: var(--ink);
-      color: var(--cream);
+      color: #fff;
     }
 
     .svc-card:hover .svc-arrow {
@@ -1717,8 +1682,8 @@
 
     .case-4 {
       grid-column: span 7;
-      background: var(--lime);
-      color: var(--ink);
+      background: var(--ink);
+      color: var(--cream);
     }
 
     @media (max-width: 800px) {
@@ -1763,7 +1728,7 @@
     }
 
     .case-3 .case-result {
-      color: var(--ink);
+      color: #fff;
     }
 
     .case-result small {
@@ -2369,24 +2334,22 @@
   .logo-img { height: 26px; width: auto; display: block; }
   .footer-brand .logo-img { height: 30px; }
 
-  /* Blue text on orange fills */
-  ::selection { background: var(--lime); color: var(--ink); }
-  .nav-cta .arrow, .btn-primary .arrow { color: var(--ink); }
-  .svc-card-2 { color: var(--ink); }
-  .svc-card-2 h3, .svc-card-2 .svc-num { color: var(--ink); }
-  .svc-card-2 .svc-desc { color: var(--ink); }
-  .svc-card-2 .svc-list li { color: var(--ink); }
-  .svc-card-1:hover .svc-arrow { color: var(--ink); }
-  .more-row:hover .more-arrow { color: var(--ink); }
-  .case-1:hover .case-arrow { color: var(--ink); }
-  .case-4, .case-4 .case-result, .case-4 .case-title, .case-4 .case-meta { color: var(--ink); }
-  .stat:hover, .stat:hover .stat-num, .stat:hover .stat-label { color: var(--ink); }
-  .test-quote em { color: var(--ink); }
-  .badge-arrow { color: var(--ink); }
-  .cta-card .btn-primary { color: var(--ink); }
+  /* RULE: every orange or blue background uses WHITE text. Light backgrounds keep blue text. */
+  ::selection { background: var(--lime); color: #fff; }
+  .nav-cta .arrow, .btn-primary .arrow { color: #fff; }
+  .more-row:hover .more-arrow { color: #fff; }
+  .case-1:hover .case-arrow { color: #fff; }
+  .case-4, .case-4 .case-title, .case-4 .case-meta, .case-4 .case-result, .case-4 .case-result small { color: #fff; }
+  .case-4 .case-tag { background: rgba(255, 255, 255, .14); color: #fff; }
+  .case-4 .case-arrow { background: rgba(255, 255, 255, .14); }
+  .case-4:hover .case-arrow { background: #fff; color: var(--ink); }
+  .stat:hover, .stat:hover .stat-num, .stat:hover .stat-label { color: #fff; }
+  .test-quote em { color: #fff; }
+  .badge-arrow { color: #fff; }
+  .cta-card .btn-primary { color: #fff; }
   .cta-card .btn-primary:hover { color: var(--ink); }
 
-  /* Accent text/strokes sitting on blue surfaces -> orange for contrast */
+  /* Accent text/numbers on blue surfaces -> white */
   .chart-num,
   .process .sec-title em,
   .step-num,
@@ -2394,19 +2357,19 @@
   .course-stat-num,
   .more-row:hover .more-num,
   .case-1 .case-result,
+  .case-1 .case-result small,
+  .case-3 .case-result small,
   .cta-card h2 em,
   .cta-availability,
-  .cta-card .btn-primary .arrow { color: var(--lime-bright); }
-  .chart-svg path.line { stroke: var(--lime-bright); }
-  /* case-3 is an orange card -> keep its accent blue */
-  .case-3 .case-result small { color: var(--ink); }
+  .cta-card .btn-primary .arrow { color: #fff; }
+  .chart-svg path.line { stroke: #fff; }
 
-  /* Course card is now orange: blue copy */
-  .course-card { color: var(--ink); }
-  .course-card h2 { color: var(--ink); }
-  .course-card > div > p { color: var(--ink); }
-  .course-card .course-features li { color: var(--ink); }
-  .course-card .course-features li svg { color: var(--ink); }
+  /* Course card (orange) + its inner panel (blue): white copy */
+  .course-card,
+  .course-card h2,
+  .course-card > div > p,
+  .course-card .course-features li,
+  .course-card .course-features li svg { color: #fff; }
   /* ================================================================== */
 </style>
 </head>
@@ -2437,7 +2400,7 @@
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a class="logo" href="#top">
-        <img class="logo-img" src="zayaanco-logo.png" alt="zayaanco" />
+        <img class="logo-img" src="assets/logo.png" alt="zayaanco" />
       </a>
 
       <nav class="nav-links">
@@ -2471,9 +2434,9 @@
         <span class="eyebrow"><span class="dot"></span> Performance marketing studio · est. 2019</span>
 
         <h1>
-          <span class="reveal-line"><span class="reveal-inner">We turn</span></span>
-          <span class="reveal-line"><span class="reveal-inner">ad budgets</span></span>
-          <span class="reveal-line"><span class="reveal-inner">into <em>pipeline<span
+          <span class="reveal-line"><span class="reveal-inner">10 Years</span></span>
+          <span class="reveal-line"><span class="reveal-inner">of Loyal</span></span>
+          <span class="reveal-line"><span class="reveal-inner"><em>Service<span
                   class="underline"></span></em>.</span></span>
         </h1>
       </div>
@@ -2527,7 +2490,7 @@
               <defs>
                 <path id="circle" d="M 50,50 m -36,0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" />
               </defs>
-              <text fill="#2A1CE5" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">
+              <text fill="#fff" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">
                 <textPath href="#circle">TAKING ON CLIENTS · TAKING ON CLIENTS · </textPath>
               </text>
             </svg>
@@ -2602,10 +2565,45 @@
       </div>
 
       <div class="svc-grid reveal-stagger">
-        <!-- Card 1: Meta Ads -->
+        <!-- Card 1: Branding -->
+        <article class="svc-card">
+          <div class="svc-header">
+            <span class="svc-num">01 / Brand</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="13.5" cy="6.5" r="2.5" />
+                <circle cx="6.5" cy="11.5" r="2.5" />
+                <circle cx="16.5" cy="14.5" r="2.5" />
+                <path d="M8.5 10l3-2M9 13l5 1" />
+              </svg>
+            </span>
+          </div>
+          <div>
+            <h3>Branding &amp;<br />identity.</h3>
+            <p class="svc-desc">Logos, brand systems and guidelines that make you instantly recognisable — strategy,
+              naming, and visual identity.</p>
+            <ul class="svc-list">
+              <li>Logo design</li>
+              <li>Brand identity</li>
+              <li>Guidelines</li>
+              <li>Graphic design</li>
+            </ul>
+          </div>
+          <a class="svc-cta" href="#cta">
+            Explore branding
+            <span class="svc-arrow">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </span>
+          </a>
+        </article>
+
+        <!-- Card 2: Meta Ads -->
         <article class="svc-card svc-card-1">
           <div class="svc-header">
-            <span class="svc-num">01 / Core</span>
+            <span class="svc-num">02 / Core</span>
             <span class="svc-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -2638,7 +2636,7 @@
         <!-- Card 2: Google / PPC -->
         <article class="svc-card svc-card-2">
           <div class="svc-header">
-            <span class="svc-num">02 / Core</span>
+            <span class="svc-num">03 / Core</span>
             <span class="svc-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -2671,7 +2669,7 @@
         <!-- Card 3: SMM -->
         <article class="svc-card svc-card-3">
           <div class="svc-header">
-            <span class="svc-num">03 / Core</span>
+            <span class="svc-num">04 / Core</span>
             <span class="svc-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -2704,7 +2702,7 @@
         <!-- Card 4: Course -->
         <article class="svc-card svc-card-4">
           <div class="svc-header">
-            <span class="svc-num">04 / Premium</span>
+            <span class="svc-num">05 / Premium</span>
             <span class="svc-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                 stroke-linejoin="round">
@@ -2734,13 +2732,19 @@
           </a>
         </article>
 
-        <!-- Card 5: Web Development (replace svc-thumb img with your uploaded image) -->
-        <article class="svc-card svc-card-tech">
-          <div class="svc-thumb">
-            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=900&q=80&auto=format&fit=crop" alt="Web development" />
+        <!-- Card 5: Web Development -->
+        <article class="svc-card">
+          <div class="svc-header">
+            <span class="svc-num">06 / Build</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <path d="M8 21h8M12 17v4" />
+              </svg>
+            </span>
           </div>
           <div>
-            <span class="svc-num">05 / Build</span>
             <h3>Web<br />development.</h3>
             <p class="svc-desc">Fast, responsive websites &amp; landing pages built to convert — modern stacks, clean
               code, SEO-ready.</p>
@@ -2762,12 +2766,18 @@
         </article>
 
         <!-- Card 6: App Development -->
-        <article class="svc-card svc-card-tech">
-          <div class="svc-thumb">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&q=80&auto=format&fit=crop" alt="App development" />
+        <article class="svc-card">
+          <div class="svc-header">
+            <span class="svc-num">07 / Build</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="7" y="2" width="10" height="20" rx="2" />
+                <path d="M11 18h2" />
+              </svg>
+            </span>
           </div>
           <div>
-            <span class="svc-num">06 / Build</span>
             <h3>App<br />development.</h3>
             <p class="svc-desc">iOS, Android &amp; cross-platform apps — from MVP to scale, designed and shipped
               end-to-end.</p>
@@ -2789,12 +2799,18 @@
         </article>
 
         <!-- Card 7: Software Development -->
-        <article class="svc-card svc-card-tech">
-          <div class="svc-thumb">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=900&q=80&auto=format&fit=crop" alt="Software development" />
+        <article class="svc-card">
+          <div class="svc-header">
+            <span class="svc-num">08 / Build</span>
+            <span class="svc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            </span>
           </div>
           <div>
-            <span class="svc-num">07 / Build</span>
             <h3>Software<br />development.</h3>
             <p class="svc-desc">Custom software, dashboards &amp; automations engineered around how your business
               actually runs.</p>
@@ -3327,18 +3343,17 @@
     <div class="container">
 
       <div class="footer-mega" id="footerMega">
-        <span>W</span><span>i</span><span>s</span><span>e</span><span>
-        </span><span>M</span><span>o</span><span>n</span><span>k</span><span>e</span><span>y</span><span
+        <span>z</span><span>a</span><span>y</span><span>a</span><span>a</span><span>n</span><span>c</span><span>o</span><span
           style="color: var(--orange);">.</span>
       </div>
 
       <div class="footer-grid">
         <div class="footer-brand">
           <a class="logo" href="#top">
-            <img class="logo-img" src="zayaanco-logo.png" alt="zayaanco" />
+            <img class="logo-img" src="assets/logo.png" alt="zayaanco" />
           </a>
-          <p>Performance marketing studio. Senior team only. Based remote — clients in NYC, London, Bangalore, Berlin.
-          </p>
+          <p>Marketing &amp; technology studio. Senior team only. Based at Nefna Mall, Abhilash Junction, Mukkam,
+            Kerala.</p>
           <div class="footer-socials">
             <a href="#" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -3400,8 +3415,8 @@
           <h5>Contact</h5>
           <ul>
             <li><a href="mailto:hi@zayaanco.com">hi@zayaanco.com</a></li>
-            <li><a href="#">Book a call</a></li>
-            <li><a href="#">Press kit</a></li>
+            <li><a href="tel:+918714210743">+91 87142 10743</a></li>
+            <li>Nefna Mall, Abhilash Junction,<br />Mukkam, Kerala</li>
           </ul>
         </div>
       </div>
@@ -3552,6 +3567,53 @@
     })();
   </script>
 
+  <!-- Floating contact buttons -->
+  <style>
+    .floating-contact {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      z-index: 9999;
+    }
+    .float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .22);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .float-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .3);
+    }
+    .float-btn svg { width: 28px; height: 28px; }
+    .float-whatsapp { background: #25D366; }
+    .float-call { background: var(--ink); }
+    @media (max-width: 800px) {
+      .floating-contact { right: 16px; bottom: 16px; gap: 12px; }
+      .float-btn { width: 52px; height: 52px; }
+      .float-btn svg { width: 26px; height: 26px; }
+    }
+  </style>
+  <div class="floating-contact">
+    <a class="float-btn float-whatsapp" href="https://wa.me/918714210743" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.745-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/>
+      </svg>
+    </a>
+    <a class="float-btn float-call" href="tel:+918714210743" aria-label="Call us">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24 11.36 11.36 0 0 0 3.57.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/>
+      </svg>
+    </a>
+  </div>
 </body>
 
 </html>
